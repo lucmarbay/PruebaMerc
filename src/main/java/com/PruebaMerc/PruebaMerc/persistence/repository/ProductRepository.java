@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Optional<Product> findByEAN(Integer ean);
+
+    void deleteByEAN(Integer ean);
 }

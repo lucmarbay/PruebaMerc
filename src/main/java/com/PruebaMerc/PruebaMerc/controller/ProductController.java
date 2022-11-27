@@ -5,6 +5,7 @@ import com.PruebaMerc.PruebaMerc.service.DestinationService;
 import com.PruebaMerc.PruebaMerc.service.ProductService;
 import com.PruebaMerc.PruebaMerc.service.SupplierService;
 import com.PruebaMerc.PruebaMerc.service.dto.ProductDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,8 +35,14 @@ public class ProductController {
         return this.productService.findAll();
     }
 
-    @GetMapping("/EAN/{EAN}")
-    public Optional<Product> findByEAN(@PathVariable("EAN") Integer ean){
+    @GetMapping("/ean/{ean}")
+    public Optional<Product> findByEAN(@PathVariable("ean") Integer ean){
         return this.productService.findByEAN(ean);
+    }
+
+    @DeleteMapping("/{ean}")
+    public ResponseEntity<Void> delete(@PathVariable("ean") Integer ean) {
+        this.productService.deleteByEAN(ean);
+        return ResponseEntity.noContent().build();
     }
 }
