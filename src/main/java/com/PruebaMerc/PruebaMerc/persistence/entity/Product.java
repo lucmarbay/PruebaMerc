@@ -12,7 +12,7 @@ public class Product {
     private Integer id;
     private int ean;
     private String name;
-    private Integer idSupplier;
+    private Supplier idSupplier;
     private Integer idDestination;
 
 }

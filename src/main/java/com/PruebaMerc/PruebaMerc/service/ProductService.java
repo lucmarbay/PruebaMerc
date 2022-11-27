@@ -17,7 +17,7 @@ public class ProductService {
         this.mapper = mapper;
     }
 
-    public Product createProducto(ProductDTO productDTO){
+    public Product createProduct(ProductDTO productDTO){
         Product product = mapper.map(productDTO);
         return this.repository.save(product);
     }
