@@ -10,9 +10,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Long ean;
+    private Integer ean;
     private String name;
-    private Integer idSupplier;
-    private Integer idDestination;
+    @ManyToOne
+    private Supplier supplier;
+    @ManyToOne
+    private Destination destination;
 
 }

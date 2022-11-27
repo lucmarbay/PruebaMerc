@@ -2,8 +2,8 @@ CREATE TABLE product (
                      id INTEGER NOT NULL AUTO_INCREMENT,
                      ean BIGINT NOT NULL,
                      name VARCHAR(128) NOT NULL,
-                     idSupplier INTEGER NOT NULL,
-                     idDestination INTEGER NOT NULL,
+                     idsupplier INTEGER NOT NULL,
+                     iddestination INTEGER NOT NULL,
                      PRIMARY KEY (id)
 );
 
