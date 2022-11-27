@@ -3,9 +3,9 @@ spring:
     name: PruebaMerc
   datasource:
     driver-class-name: org.h2.Driver
-    username: a
-    password: a
-    url: "jdbc:h2:mem:todoapp;DB_CLOSE_ON_EXIT=FALSE"
+    username: root
+    password: root
+    url: "jdbc:h2:mem:pruebaMerc;DB_CLOSE_ON_EXIT=FALSE"
   h2:
     console:
       enabled: true
