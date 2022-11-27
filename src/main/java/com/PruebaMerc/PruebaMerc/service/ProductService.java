@@ -1,10 +1,12 @@
 package com.PruebaMerc.PruebaMerc.service;
 
+import com.PruebaMerc.PruebaMerc.exceptions.ProductException;
 import com.PruebaMerc.PruebaMerc.mapper.ProductDTOToProduct;
 import com.PruebaMerc.PruebaMerc.persistence.entity.EAN;
 import com.PruebaMerc.PruebaMerc.persistence.entity.Product;
 import com.PruebaMerc.PruebaMerc.persistence.repository.ProductRepository;
 import com.PruebaMerc.PruebaMerc.service.dto.ProductDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,5 +34,14 @@ public class ProductService {
 
     public Optional<Product> findByEAN(Integer ean){
         return this.repository.findByEAN(ean);
+    }
+
+    public void deleteByEAN(Integer ean) {
+        Optional<Product> optionalProduct = this.repository.findByEAN(ean);
+        if (optionalProduct.isEmpty()) {
+            throw new ProductException("Product not found", HttpStatus.NOT_FOUND);
+        }
+
+        this.repository.deleteByEAN(ean);
     }
 }
