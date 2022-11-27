@@ -5,14 +5,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "producto")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private int ean;
+    private Long ean;
     private String name;
-    private Supplier idSupplier;
+    private Integer idSupplier;
     private Integer idDestination;
 
 }
